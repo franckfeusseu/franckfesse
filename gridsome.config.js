@@ -6,5 +6,16 @@
 
 module.exports = {
   siteName: 'Franck Fesse',
-  plugins: []
-}
+  plugins: [
+    {
+      use: '@gridsome/source-filesystem',
+      options: {
+        typeName: "Post",
+        path: "./post/**/*.md",
+      },
+    },
+  ],
+  templates: {
+    Post: "/post/:title",
+  },
+};

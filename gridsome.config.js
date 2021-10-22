@@ -6,15 +6,26 @@
 
 module.exports = {
   siteName: 'Franck Fesse',
+  SiteDescription: 'Franck Fesse personnal blog',
   plugins: [
     {
       use: '@gridsome/source-filesystem',
       options: {
         typeName: "Post",
         path: "./post/**/*.md",
+        remark: {
+          plugins: [
+
+          ]
+        }
       },
     },
   ],
+  transformers: {
+    remark: {
+      // global remark options
+    }
+  },
   templates: {
     Post: "/post/:title",
   },

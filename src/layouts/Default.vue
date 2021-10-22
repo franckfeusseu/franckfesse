@@ -11,6 +11,9 @@
       </nav>
     </header>
     <slot/>
+    <footer>
+      &copy;2021 Franck Fesse . All rights reserved 
+    </footer>  
   </div>
 </template>
 

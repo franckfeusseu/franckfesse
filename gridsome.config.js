@@ -17,7 +17,13 @@ module.exports = {
           plugins: [
             '@gridsome/remark-prismjs'
           ]
-        }
+        },
+      refs: {
+        tags: {
+          typeName: 'Tag',
+          create: true
+          },
+        }  
       },
     },
   ],
@@ -30,5 +36,6 @@ module.exports = {
   },
   templates: {
     Post: "/post/:title",
+    Tag: "/tag/:id",
   },
 };

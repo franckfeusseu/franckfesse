@@ -1,6 +1,7 @@
 ---
 date: 2021-07-07  
 description: "This is the first description i write on gridsome."
+tags: ['aws', 'python']
 ---
 
 # Foobar

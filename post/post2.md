@@ -1,5 +1,6 @@
 ---
 date: 2021-07-07  
+description: "This is the first description i write on gridsome."
 ---
 
 # Foobar
@@ -14,6 +15,13 @@ Use the package manager [pip](https://pip.pypa.io/en/stable/) to install foobar.
 pip install foobar
 ```
 
+```ruby
+require 'redcarpet'
+markdown = Redcarpet.new("Hello World!")
+puts markdown.to_html
+```
+
+> Maurel is going home tomorrow 
 ## Usage
 
 ```python

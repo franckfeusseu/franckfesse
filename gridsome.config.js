@@ -15,7 +15,7 @@ module.exports = {
         path: "./post/**/*.md",
         remark: {
           plugins: [
-
+            '@gridsome/remark-prismjs'
           ]
         }
       },
@@ -23,7 +23,9 @@ module.exports = {
   ],
   transformers: {
     remark: {
-      // global remark options
+      plugins: [
+        '@gridsome/remark-prismjs'
+      ]
     }
   },
   templates: {

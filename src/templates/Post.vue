@@ -13,7 +13,8 @@
         post: post(path: $path) {
             id 
             title 
-            path 
+            path
+            description 
             date (format: "MMMM D, YYYY h:mma") 
             content
         }

@@ -3,7 +3,25 @@
 
 import DefaultLayout from '~/layouts/Default.vue'
 
+
+/* Nomralize.css */
+import "normalize.css"
+
+/* Prism.css  */
+import 'prismjs/themes/prism.css'
+
+// fontawesome 
+import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome"
+import { config, library } from "@fortawesome/fontawesome-svg-core"
+import { faArrowDown, faArrowRight } from "@fortawesome/free-solid-svg-icons"
+import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons"
+import "@fortawesome/fontawesome-svg-core/styles.css"
+
+config.autoAddCss = false
+library.add(faGithub, faLinkedin, faArrowDown, faArrowRight)
+
 export default function (Vue, { router, head, isClient }) {
   // Set default layout as a global component
-  Vue.component('Layout', DefaultLayout)
+  Vue.component('Layout', DefaultLayout),
+  Vue.component('font-awesome', FontAwesomeIcon )
 }

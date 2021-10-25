@@ -1,9 +1,6 @@
 <template>
   <Layout>
     <h1>Blog</h1>
-        <u>
-			<h2>Posts</h2>
-		</u>
      <g-link
             v-for="post in $page.posts.edges"
             :key="post.id"
@@ -14,6 +11,7 @@
                 <h3>
                     <b>{{ post.node.title }}</b>
                 </h3>
+                <div v-html="post.node.description"></div>
                 <p>Date: {{ post.node.date }}</p>
             </div>
         </g-link>
@@ -34,7 +32,8 @@ export default {
             edges {
                 node {
                     id 
-                    title 
+                    title
+                    description 
                     path 
                     date(format: "MMMM D, YYYY")
                 } 
@@ -42,3 +41,7 @@ export default {
         } 
     }
 </page-query>
+
+<style lang="scss" scoped>
+  
+</style>

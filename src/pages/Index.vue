@@ -1,33 +1,47 @@
 <template>
   <Layout>
-
-    <!-- Learn how to use images here: https://gridsome.org/docs/images -->
-    <g-image alt="Example image" src="~/favicon.png" width="135" />
-
-    <h1>Hello, world!</h1>
-
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur excepturi labore tempore expedita, et iste tenetur suscipit explicabo! Dolores, aperiam non officia eos quod asperiores
-    </p>
-
-    <p class="home-links">
-      <a href="https://gridsome.org/docs/" target="_blank" rel="noopener">Gridsome Docs</a>
-      <a href="https://github.com/gridsome/gridsome" target="_blank" rel="noopener">GitHub</a>
-    </p>
-
+    <h1>Blog</h1>
+     <g-link
+            v-for="post in $page.posts.edges"
+            :key="post.id"
+            class="post"
+            :to="post.node.path"
+        >
+            <div class="post">
+                <h3>
+                    <b class="post-title">{{ post.node.title }}</b>
+                </h3>
+                <div v-html="post.node.description"></div>
+                <p>Date: {{ post.node.date }}</p>
+            </div>
+        </g-link>
   </Layout>
 </template>
 
 <script>
 export default {
   metaInfo: {
-    title: 'Hello, world!'
+    title: 'Home'
   }
 }
 </script>
 
-<style>
-.home-links a {
-  margin-right: 1rem;
-}
+<page-query>
+    query {
+        posts: allPost {
+            edges {
+                node {
+                    id 
+                    title
+                    description 
+                    path 
+                    date(format: "MMMM D, YYYY")
+                } 
+            } 
+        } 
+    }
+</page-query>
+
+<style lang="scss" scoped>
+  
 </style>

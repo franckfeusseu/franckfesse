@@ -21,7 +21,13 @@
 <script>
 export default {
   metaInfo: {
-    title: 'Blog'
+    title: 'Blog',
+    meta: [
+        {
+       name: 'Keywords',
+       content: 'Python aws django devops'
+      }
+    ]
   }
 }
 </script>

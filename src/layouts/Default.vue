@@ -1,7 +1,9 @@
 <template>
   <div class="layout">
     <TheHeader />
-    <slot/>
+    <div class="content">
+      <slot />
+    </div>
     <TheFooter />
   </div>
 </template>
@@ -28,6 +30,12 @@ export default {
 </script>
 
 <style>
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
 body {
   font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
   margin:0;
@@ -49,6 +57,10 @@ body {
   margin-bottom: 20px;
   height: 80px;
 }
+ 
+ .content {
+  min-height: 100vh;
+  }
 
 .nav__link {
   margin-left: 20px;

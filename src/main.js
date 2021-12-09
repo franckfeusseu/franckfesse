@@ -1,6 +1,11 @@
 // This is the main.js file. Import global CSS and scripts here.
 // The Client API can be used here. Learn more: gridsome.org/docs/client-api
 
+
+// vuetify
+import Vuetify from 'vuetify'
+import 'vuetify/dist/vuetify.min.css'
+
 import DefaultLayout from '~/layouts/Default.vue'
 
 
@@ -23,7 +28,7 @@ import "@fortawesome/fontawesome-svg-core/styles.css"
 config.autoAddCss = false
 library.add(faGithub, faLinkedin, faArrowDown, faArrowRight, faEnvelope)
 
-export default function (Vue, { router, head, isClient }) {
+export default function (Vue, { router, head, isClient , appOptions }) {
   //Global Head Metadata
   head.meta.push(
     {
@@ -38,6 +43,21 @@ export default function (Vue, { router, head, isClient }) {
     }
   )
 
+  head.link.push({
+    rel: 'stylesheet',
+    href: 'https://cdn.jsdelivr.net/npm/@mdi/font@latest/css/materialdesignicons.min.css',
+  });
+  
+  head.link.push({
+    rel: 'stylesheet',
+    href: 'https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900',
+  });
+
+  const opts = { } //opts includes, vuetify themes, icons, etc.
+  Vue.use(Vuetify)
+  
+  appOptions.vuetify = new Vuetify(opts);
+  
   // Set default layout as a global component
   Vue.component('Layout', DefaultLayout),
   Vue.component('font-awesome', FontAwesomeIcon )

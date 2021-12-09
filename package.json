@@ -12,6 +12,7 @@
     "@gridsome/source-filesystem": "^0.6.2",
     "@gridsome/transformer-remark": "^0.6.4",
     "gridsome": "^0.7.0",
+    "vuetify": "^2.5.10",
     "webpack": "^4.46.0"
   },
   "devDependencies": {
@@ -21,6 +22,7 @@
     "node-sass": "^6.0.1",
     "normalize.css": "^8.0.1",
     "sass": "^1.43.3",
-    "sass-loader": "^10.2.0"
+    "sass-loader": "^10.2.0",
+    "webpack-node-externals": "^3.0.0"
   }
 }

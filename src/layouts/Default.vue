@@ -1,10 +1,12 @@
 <template>
-  <div class="layout">
-    <TheHeader />
-    <div class="content">
-      <slot />
-    </div>
-    <TheFooter />
+  <div id="app">
+    <v-app>
+      <TheHeader class="mx-4"/>
+      <v-main class="mx-16">
+        <slot/>
+      </v-main>  
+      <TheFooter/> 
+    </v-app>
   </div>
 </template>
 
@@ -67,14 +69,11 @@ body {
   text-decoration: none;
 }
 
-.post {
-    text-decoration: none;
-  }
-  .post:visited {
-    color: black;
-  }
-  .post-title{
-    color: aqua;
-  }
+a, a:visited, a:hover, a:active {
+  color: inherit;
+}
+
+
+
 
 </style>

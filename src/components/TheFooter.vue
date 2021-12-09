@@ -13,7 +13,7 @@
       </a>
     </p>
     <div class="footer-copyrights">
-      &copy;{{ new Date().getFullYear() }} Franck Fesse . Powered by <a href="https://gridsome.org/" target="_blank"> Gridsome</a>
+      &copy;{{ new Date().getFullYear() }} Franck Fesse . Powered by <a href="https://gridsome.org/" target="_blank" class="gridsome"> Gridsome</a>
     </div>
      
   </footer>  
@@ -51,6 +51,7 @@
   width: 100%;
   display: flex;
   flex-direction: column;
+  margin-bottom: 1rem;
 
 }
 .social-icon {
@@ -79,5 +80,9 @@
 .footer-copyrights a{
   margin-left: 0.5rem;
   text-decoration: none;
+}
+
+.gridsome {
+  color: green;
 }
 </style>

@@ -14,8 +14,12 @@
                 <div class="DateTags">
                   <p>{{ post.node.date }}</p>
                   <div class="tags">
-                    <v-chip label v-for="tag in post.node.tags" :key="tag.title" class="ma-2" color="red" text-color="white">
-                         <v-icon left> mdi-label</v-icon>
+                    <v-chip 
+                        v-for="tag in post.node.tags" 
+                        :key="tag.title" class="ma-2" 
+                        color="red" text-color="white"
+                        :to="tag.path"
+                    >
                         {{tag.title}}
                     </v-chip>
                   </div>

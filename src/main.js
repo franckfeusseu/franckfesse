@@ -9,14 +9,10 @@ import 'vuetify/dist/vuetify.min.css'
 import DefaultLayout from '~/layouts/Default.vue'
 
 
-/* Nomralize.css */
-import "normalize.css"
 
 /* reset.css     */
 // import "./assets/reset.css"
 
-/* Prism.css  */
-import 'prismjs/themes/prism.css'
 
 // fontawesome 
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome"

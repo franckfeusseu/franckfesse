@@ -4,8 +4,23 @@
 
 // Changes here require a server restart.
 // To restart press CTRL + C in terminal and run `gridsome develop`
+const nodeExternals = require('webpack-node-externals')
 
 module.exports = function (api) {
+  api.chainWebpack((config, { isServer }) => {
+    if (isServer) {
+      config.externals([
+        nodeExternals({
+          allowlist: [/^vuetify/]
+        })
+      ])
+    }
+  })
+  
+  api.loadSource(store => {
+    // Use the Data store API here: https://gridsome.org/docs/data-store-api
+  })
+  
   api.loadSource(({ addCollection }) => {
     // Use the Data Store API here: https://gridsome.org/docs/data-store-api/
   })

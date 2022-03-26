@@ -1,11 +1,11 @@
 <template>
-  <div class="layout">
-    <TheHeader />
-    <div class="content">
-      <slot />
-    </div>
+    <v-app>
+     <TheHeader />
+      <v-container>
+        <slot />    
+      </v-container>      
     <TheFooter />
-  </div>
+    </v-app>
 </template>
 
 <static-query>

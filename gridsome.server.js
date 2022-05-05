@@ -4,18 +4,12 @@
 
 // Changes here require a server restart.
 // To restart press CTRL + C in terminal and run `gridsome develop`
-const nodeExternals = require('webpack-node-externals')
+const VuetifyLoaderPlugin = require('vuetify-loader/lib/plugin');
 
 module.exports = function (api) {
   api.chainWebpack((config, { isServer }) => {
-    if (isServer) {
-      config.externals([
-        nodeExternals({
-          allowlist: [/^vuetify/]
-        })
-      ])
-    }
-  })
+    config.plugin('vuetify-loader').use(VuetifyLoaderPlugin);
+  });
   
   api.loadSource(store => {
     // Use the Data store API here: https://gridsome.org/docs/data-store-api

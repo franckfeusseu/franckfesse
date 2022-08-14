@@ -2,17 +2,22 @@
     <Layout>
         <header class="title">
             <h1>{{ $page.post.title }}</h1>
-            <p>Published on: {{ $page.post.date }}</p>
         </header>
-        <div>
-            <g-link
+        <div class="tag-container">
+            <div class="publication">
+              <p>Published on: {{ $page.post.date }}</p>
+            </div>
+            <div class="tags">
+               <g-link
              :to="tag.path"
              v-for="tag in $page.post.tags"
              :key="tag.id"
              class="tag"
-            >
+            > 
+              #
               {{ tag.title }}
             </g-link>
+            </div>
         </div>
         <main class="content" v-html="$page.post.content"></main>
     </Layout>
@@ -21,12 +26,17 @@
 <page-query>
     query Post($path: String!) {
         post: post(path: $path) {
-            id 
-            title 
+            id
+            title
             path
-            description 
-            date (format: "MMMM D, YYYY h:mma") 
+            description
+            date (format: "MMMM D, YYYY")
             content
+            image {
+              path
+              caption
+              alt
+            }
             tags {
                 title
                 path
@@ -43,4 +53,19 @@
         color: grey;
         text-decoration: none;
     }
+    .cover-image {
+        display: flex;
+        justify-content: center;
+        width: 500px;
+        height: 500px;
+    }
+    .tag-container {
+        display: flex;
+        justify-content: center;
+        margin: 2rem;
+    }
+    .tag {
+        margin: 1rem;
+    }
+
 </style>

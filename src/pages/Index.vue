@@ -1,36 +1,32 @@
 <template>
   <Layout>
-    <h1>Blog</h1>
-    <v-layout row wrap>
-      <v-flex d-flex xs12 sm6 md4
+    <div class="blog-list-container">
+      <h1 class="blog">Articles</h1>
+      <div
             v-for="post in $page.posts.edges"
             :key="post.id"
-            class="post"
             :to="post.node.path"
         >
-           <v-card class="post">
-             <v-img
-              height="100"
-               src="https://cdn.vuetifyjs.com/images/cards/cooking.png"
-             ></v-img>
-            <v-card-text>
-                <h3>
-                    <b class="post-title">{{ post.node.title }}</b>
-                </h3>
+            <div class="post">
+                <g-link :to="post.node.path" class="blog-post-title">{{ post.node.title }}</g-link>
                 <div v-html="post.node.description"></div>
-                <p>Date: {{ post.node.date }}</p>
-            </v-card-text>
-           </v-card>            
-      </v-flex>
-    </v-layout>
-     
+                <p class="blog-post-date">Date: {{ post.node.date }}</p>
+            </div>
+      </div>
+    </div>
   </Layout>
 </template>
 
 <script>
 export default {
   metaInfo: {
-    title: 'Home'
+    title: 'Blog',
+    meta: [
+        {
+       name: 'Keywords',
+       content: 'Python aws django devops'
+      }
+    ]
   }
 }
 </script>
@@ -40,17 +36,40 @@ export default {
         posts: allPost {
             edges {
                 node {
-                    id 
+                    id
                     title
-                    description 
-                    path 
+                    description
+                    path
                     date(format: "MMMM D, YYYY")
-                } 
-            } 
-        } 
+                    tags {
+                      title
+                      path
+                    }
+                }
+            }
+        }
     }
 </page-query>
 
 <style lang="scss" scoped>
-  
+  .blog {
+    font-size: 2em;
+  }
+
+  .blog-list-container {
+    width: 75%;
+    margin: auto;
+
+  }
+  .blog-post-title {
+    color: black;
+    text-decoration: none;
+    font-size: 2em;
+  }
+  .blog-post-title:hover {
+    color: blue;
+  }
+  .blog-post-date {
+    color: grey;
+  }
 </style>

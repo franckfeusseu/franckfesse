@@ -1,6 +1,6 @@
 <template>
     <Layout>
-        <h1>{{$page.tag.title}}</h1> 
+        <h1>{{$page.tag.title}} Articles</h1> 
 
         <li v-for="post in $page.tag.belongsTo.edges" :key="post.node.id">
           <g-link :to="post.node.path"> {{ post.node.title}}</g-link>

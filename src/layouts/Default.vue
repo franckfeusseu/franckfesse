@@ -1,7 +1,7 @@
 <template>
     <v-app>
      <TheHeader />
-      <v-container>
+      <v-container class="content">
         <slot />    
       </v-container>      
     <TheFooter />
@@ -59,7 +59,9 @@ body {
 }
  
  .content {
-  min-height: 100vh;
+  min-height: 80vh;
+  padding-right: 20%;
+  padding-left: 20%;
   }
 
 .nav__link {

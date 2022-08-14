@@ -1,20 +1,19 @@
 <template>
   <Layout>
-    <h1>Blog</h1>
-     <g-link
+    <div class="blog-list-container">
+      <h1 class="blog">Articles</h1>
+      <div
             v-for="post in $page.posts.edges"
             :key="post.id"
-            class="post"
             :to="post.node.path"
         >
             <div class="post">
-                <h3>
-                    <b>{{ post.node.title }}</b>
-                </h3>
+                <g-link :to="post.node.path" class="blog-post-title">{{ post.node.title }}</g-link>
                 <div v-html="post.node.description"></div>
-                <p>Date: {{ post.node.date }}</p>
+                <p class="blog-post-date">Date: {{ post.node.date }}</p>
             </div>
-        </g-link>
+      </div>
+    </div>
   </Layout>
 </template>
 
@@ -37,17 +36,40 @@ export default {
         posts: allPost {
             edges {
                 node {
-                    id 
+                    id
                     title
-                    description 
-                    path 
+                    description
+                    path
                     date(format: "MMMM D, YYYY")
-                } 
-            } 
-        } 
+                    tags {
+                      title
+                      path
+                    }
+                }
+            }
+        }
     }
 </page-query>
 
 <style lang="scss" scoped>
-  
+  .blog {
+    font-size: 2em;
+  }
+
+  .blog-list-container {
+    width: 75%;
+    margin: auto;
+
+  }
+  .blog-post-title {
+    color: black;
+    text-decoration: none;
+    font-size: 2em;
+  }
+  .blog-post-title:hover {
+    color: blue;
+  }
+  .blog-post-date {
+    color: grey;
+  }
 </style>
